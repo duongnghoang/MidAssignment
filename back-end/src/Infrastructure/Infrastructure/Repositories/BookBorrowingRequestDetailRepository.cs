@@ -10,7 +10,7 @@ public class BookBorrowingRequestDetailRepository(ApplicationDbContext context) 
 {
     public async Task<BookBorrowingRequestDetail?> GetByBookIdAsync(uint bookId)
     {
-        return await context.BookBorrowingRequestsDetail.FirstOrDefaultAsync(rd => rd.BookId == bookId);
+        return await _context.BookBorrowingRequestsDetail.FirstOrDefaultAsync(rd => rd.BookId == bookId);
 
     }
 }

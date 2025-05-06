@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import UserLayout from '~/layouts/UserLayout';
 import SignInPage from '~/pages/Admin/Auth/SignInPage';
-import Dashboard from '~/pages/Admin/Dashboard/Dashboard';
 import ProtectedRoute from './ProtectedRoute';
 import BookPage from '~/pages/Admin/Books/BookPage';
 import CategoryPage from '~/pages/Admin/Categories/CategoryPage';
@@ -21,10 +20,6 @@ export default function Routes() {
         {
           element: <UserLayout />,
           children: [
-            {
-              path: '/',
-              element: <Dashboard />,
-            },
             {
               path: '/books',
               element: <BookPage />,

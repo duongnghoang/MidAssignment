@@ -1,4 +1,4 @@
-﻿namespace Contract.Dtos.BookBorrowRequests.Requests;
+﻿namespace Contract.Dtos.BookBorrowRequestDetails.Requests;
 
 public class AddNewBookBorrowingRequestDetailDto
 {

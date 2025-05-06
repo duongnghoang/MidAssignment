@@ -1,4 +1,5 @@
-﻿using Domain.Entities;
+﻿using Contract.Dtos.BookBorrowRequestDetails.Requests;
+using Domain.Entities;
 using Domain.Enums;
 
 namespace Contract.Dtos.BookBorrowRequests.Requests;

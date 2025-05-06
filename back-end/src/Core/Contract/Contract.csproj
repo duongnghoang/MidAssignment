@@ -11,7 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Dtos\BookBorrowRequestDetails\Requests\" />
     <Folder Include="Dtos\BookBorrowRequestDetails\Responses\" />
     <Folder Include="UnitOfWork\" />
   </ItemGroup>
