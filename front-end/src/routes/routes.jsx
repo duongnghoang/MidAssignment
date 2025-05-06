@@ -21,7 +21,7 @@ export default function Routes() {
           element: <UserLayout />,
           children: [
             {
-              path: '/books',
+              path: '/',
               element: <BookPage />,
             },
             {
@@ -43,7 +43,7 @@ export default function Routes() {
           element: <UserLayout />,
           children: [
             {
-              path: '/home',
+              path: '/books',
               element: <UserBooksPage />,
             },
             {
