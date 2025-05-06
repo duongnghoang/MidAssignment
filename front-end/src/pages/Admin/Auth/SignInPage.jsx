@@ -32,9 +32,9 @@ export default function SignInPage() {
     if (!isLoading && user) {
       const role = user?.role;
       if (role === 'SUPER_USER') {
-        navigate('/');
+        navigate('/books');
       } else if (role === 'NORMAL_USER') {
-        navigate('/home');
+        navigate('/');
       }
     }
   }, [user, isLoading, navigate]);

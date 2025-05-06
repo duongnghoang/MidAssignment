@@ -15,7 +15,7 @@ export const navigation = [
     key: '2',
     icon: <BookOutlined />,
     label: 'Books',
-    link: '/books',
+    link: '/',
     requiredRole: userRoles.SUPER_USER,
   },
   {
@@ -36,7 +36,7 @@ export const navigation = [
     key: '8',
     icon: <BookOutlined />,
     label: 'Books',
-    link: '/home',
+    link: '/books',
     requiredRole: userRoles.NORMAL_USER,
   },
   {

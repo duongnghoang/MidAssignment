@@ -26,18 +26,4 @@ public class AuthController(IAuthService authService) : ControllerBase
 
         return Created();
     }
-
-    [Authorize("NormalUser")]
-    [HttpGet("test")]
-    public IActionResult Get()
-    {
-        return Ok("Ok");
-    }
-
-    [Authorize("SuperUser")]
-    [HttpGet("test2")]
-    public IActionResult Get2()
-    {
-        return Ok("Ok");
-    }
 }

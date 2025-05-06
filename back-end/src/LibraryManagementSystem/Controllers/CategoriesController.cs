@@ -1,6 +1,7 @@
 ﻿using Application.Services.Books;
 using Application.Services.Categories;
 using Contract.Dtos.Categories.Requests;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -11,6 +12,7 @@ namespace LibraryManagementSystem.Controllers;
 [ApiController]
 public class CategoriesController(ICategoryService categoryService) : ControllerBase
 {
+    [Authorize]
     [HttpGet]
     public async Task<IActionResult> GetAllCategoriesAsync()
     {
@@ -19,6 +21,7 @@ public class CategoriesController(ICategoryService categoryService) : Controller
         return Ok(result);
     }
 
+    [Authorize]
     [HttpGet("filter")]
     public async Task<IActionResult> GetListCategoriesFilterAsync([FromQuery] GetAllCategoryFilterRequestDto request)
     {
@@ -27,6 +30,7 @@ public class CategoriesController(ICategoryService categoryService) : Controller
         return Ok(result);
     }
 
+    [Authorize("SuperUser")]
     [HttpPost]
     public async Task<IActionResult> AddNewCategoryAsync([FromBody] AddCategoryRequestDto request)
     {
@@ -35,6 +39,7 @@ public class CategoriesController(ICategoryService categoryService) : Controller
         return Ok(result);
     }
 
+    [Authorize("SuperUser")]
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateCategoryAsync(uint id, [FromBody] UpdateCategoryRequestDto request)
     {
@@ -43,6 +48,7 @@ public class CategoriesController(ICategoryService categoryService) : Controller
         return Ok(result);
     }
 
+    [Authorize("SuperUser")]
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteCategoryAsync(uint id)
     {

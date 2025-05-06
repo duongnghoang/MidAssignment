@@ -4,7 +4,6 @@ import { Content } from 'antd/es/layout/layout';
 import Sider from 'antd/es/layout/Sider';
 import Navbar from '~/components/Layout/Navbar';
 import Header from '~/components/Layout/Header';
-import Dashboard from '~/pages/Admin/Dashboard/Dashboard';
 import { Outlet } from 'react-router-dom';
 import { useAuthContext } from '~/contexts/authContext';
 
