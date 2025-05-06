@@ -5,7 +5,6 @@ using Contract.Shared;
 using Contract.Shared.Constants;
 using Contract.UnitOfWork;
 using Domain.Entities;
-using System.Security.Claims;
 using Domain.Enums;
 
 namespace Application.Services.BookBorrowingRequests;
@@ -17,13 +16,13 @@ public class BookBorrowingRequestService(IUnitOfWork unitOfWork) : IBookBorrowin
     {
         var queryOptions = new QueryOptions<BookBorrowingRequest>();
 
-        queryOptions.AddInclude(bbr => bbr.Requestor);
-        queryOptions.AddInclude(bbr => bbr.Approver);
+        queryOptions.AddInclude(bbr => bbr.Requestor!);
+        queryOptions.AddInclude(bbr => bbr.Approver!);
         queryOptions.AddInclude(bbr => bbr.BookBorrowingRequestDetails);
 
         if (!string.IsNullOrEmpty(request.SearchRequestor))
         {
-            queryOptions.AddFilter(bbr => bbr.Requestor.Username.Contains(request.SearchRequestor));
+            queryOptions.AddFilter(bbr => bbr.Requestor!.Username.Contains(request.SearchRequestor));
         }
 
         if (request.SearchStatus is not null)

@@ -22,7 +22,7 @@ public class CategoryService(IUnitOfWork unitOfWork) : ICategoryService
         var queryOptions = new QueryOptions<Category>();
         if (!string.IsNullOrEmpty(request.Name))
         {
-            queryOptions.AddFilter(c => c.Name.Contains(request.Name));
+            queryOptions.AddFilter(c => c.Name!.Contains(request.Name));
         }
         queryOptions.PageSize = request.PageSize;
         queryOptions.PageIndex = request.PageIndex;

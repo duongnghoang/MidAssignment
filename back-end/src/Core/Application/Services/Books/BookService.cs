@@ -18,9 +18,9 @@ public class BookService(IUnitOfWork unitOfWork) : IBookService
         }
         if (!string.IsNullOrEmpty(request.SearchString))
         {
-            options.AddFilter(b => b.Title.Contains(request.SearchString) ||
-                                   b.ISBN.Contains(request.SearchString) ||
-                                   b.Author.Contains(request.SearchString));
+            options.AddFilter(b => b.Title!.Contains(request.SearchString) ||
+                                   b.ISBN!.Contains(request.SearchString) ||
+                                   b.Author!.Contains(request.SearchString));
         }
 
         if (request.IsAvailable != null)
