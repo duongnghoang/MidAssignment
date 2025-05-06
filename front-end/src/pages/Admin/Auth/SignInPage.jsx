@@ -7,7 +7,7 @@ import { useAuthContext } from '~/contexts/authContext';
 import { passwordRule, requiredRule } from '~/constants/validation';
 import { toast } from 'react-toastify';
 
-const { Title } = Typography;
+const { Text, Title } = Typography;
 
 export default function SignInPage() {
   const [loading, setLoading] = useState(false);
@@ -84,6 +84,17 @@ export default function SignInPage() {
               Sign In
             </Button>
           </Form.Item>
+
+          <div className="text-center">
+            <Text>Don't have an account? </Text>
+            <Button
+              type="link"
+              onClick={() => navigate('/register')}
+              className="text-blue-600 hover:text-blue-800"
+            >
+              Register
+            </Button>
+          </div>
         </Form>
       </div>
     </div>
