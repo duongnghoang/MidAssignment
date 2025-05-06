@@ -34,18 +34,26 @@ public class CategoriesController(ICategoryService categoryService) : Controller
     [HttpPost]
     public async Task<IActionResult> AddNewCategoryAsync([FromBody] AddCategoryRequestDto request)
     {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
         var result = await categoryService.AddNewCategoryAsync(request);
 
-        return Ok(result);
+        return result.IsSuccess ? Ok(result) : BadRequest(result);
     }
 
     [Authorize("SuperUser")]
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateCategoryAsync(uint id, [FromBody] UpdateCategoryRequestDto request)
     {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
         var result = await categoryService.UpdateCategoryAsync(id, request);
 
-        return Ok(result);
+        return result.IsSuccess ? NoContent() : BadRequest(result);
     }
 
     [Authorize("SuperUser")]

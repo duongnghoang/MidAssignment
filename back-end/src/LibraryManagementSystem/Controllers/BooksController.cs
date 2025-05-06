@@ -24,6 +24,10 @@ public class BooksController(IBookService bookService) : ControllerBase
     [HttpPost]
     public async Task<IActionResult> AddBookAsync([FromBody] AddBookRequestDto request)
     {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
         var result = await bookService.AddBookAsync(request);
 
         return result.IsSuccess ? Ok(result) : BadRequest(result);
@@ -33,6 +37,10 @@ public class BooksController(IBookService bookService) : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> UpdateBook(uint id, [FromBody] UpdateBookRequestDto request)
     {
+        if (!ModelState.IsValid)
+{
+    return BadRequest(ModelState);
+}
         var result = await bookService.UpdateBookAsync(id, request);
 
         return result.IsSuccess ? NoContent() : BadRequest(result);
