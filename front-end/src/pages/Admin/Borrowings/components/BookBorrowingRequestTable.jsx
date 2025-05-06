@@ -20,14 +20,18 @@ export default function BookBorrowingRequestTable({
   const { userId } = useAuthContext();
 
   const handleUpdateStatus = async (id, status) => {
+    const statusResponse =
+      status === requestStatusEnum.APPROVED
+        ? requestStatus.APPROVED.toLowerCase()
+        : requestStatus.REJECTED.toLowerCase();
     try {
       const response = await updateRequestStatus(id, status, userId);
-      toast.success(`Book request ${status.toLowerCase()} successfully!`);
+      toast.success(`Book request ${statusResponse} successfully!`);
       setFilters((prev) => ({ ...prev }));
     } catch (error) {
       toast.error(
         error.response?.data?.error ||
-          `Failed to ${status.toLowerCase()} book request`
+          `Failed to ${statusResponse} book request`
       );
     }
   };
